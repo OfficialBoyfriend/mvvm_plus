@@ -115,7 +115,7 @@ abstract class View<T extends ViewModel> extends StatefulWidget {
   ///
   ///      @override
   ///      Widget build(BuildContext context) {
-  ///      // Use `getState` to retrieve your custom ViewState/mixin object
+  ///        // Use `getState` to retrieve your custom ViewState/mixin object
   ///        return getState<MyWidgetState>().buildGreeting(viewModel.message.value);
   ///      }
   ///    }
@@ -129,6 +129,7 @@ abstract class View<T extends ViewModel> extends StatefulWidget {
   ///
   ///    class MyWidgetViewModel extends ViewModel {
   ///      late final message = createProperty<String>('Hello');
+  ///      // late final message = ValueNotifier<String>('Hello')..addListener(buildView);
   ///    }
   ///
   @override
@@ -443,11 +444,8 @@ class _StatelessViewModel extends ViewModel {}
 ///
 /// Under the hood, an empty ViewModel is created for [StatelessView]
 ///
-typedef StatelessView = ViewWithStatelessViewModel;
-
-@Deprecated('This class was renamed to [StatelessView]')
-abstract class ViewWithStatelessViewModel extends View<_StatelessViewModel> {
-  ViewWithStatelessViewModel({super.key}) : super(builder: () => _StatelessViewModel());
+abstract class StatelessView extends View<_StatelessViewModel> {
+  StatelessView({super.key}) : super(builder: () => _StatelessViewModel());
 
   @override
   @protected

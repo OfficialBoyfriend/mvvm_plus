@@ -115,6 +115,7 @@ class PropertyWidget extends View<PropertyWidgetViewModel> {
 
 class PropertyWidgetViewModel extends ViewModel {
   late final count = createProperty<int>(0);
+  // late final count = ValueNotifier<int>(0)..addListener(buildView);
 }
 
 /// Demonstrates [get] and [listenTo]
@@ -276,6 +277,7 @@ class MixinWidgetState extends ViewState<MixinWidgetViewModel> with MyMixin {}
 
 class MixinWidgetViewModel extends ViewModel {
   late final count = createProperty<int>(0);
+  // late final count = ValueNotifier<int>(0)..addListener(buildView);
 }
 
 /// Grid of counters.
